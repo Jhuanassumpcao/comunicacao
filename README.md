@@ -35,5 +35,6 @@ No sincronismo por codificação, um ou mais bits especiais são adicionados à 
 Quando um sinal é transmitido utilizando o código, o ruído introduzido no canal de comunicação afeta tanto a polaridade positiva quanto a negativa dos níveis de tensão, o que pode reduzir o nível de ruído total. Além disso, o sinal pode ser recuperado mais facilmente pelo receptor, já que a presença de ambas as polaridades positiva e negativa ajuda a distinguir os bits individuais e a reconstruir a palavra de dados original.
 
 ### Aplicação prática:
-Ethernet 100Base-TX
+Ethernet 100Base-TX.
+
 RS-232 e RS-485.
