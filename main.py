@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[18]:
 
 
 import matplotlib.pyplot as plt
@@ -21,20 +21,9 @@ def plotar_grafico(bits, opcao):
             else:
                 cod_nrzi.append(-cod_nrzi[-1])
         cod_nrzi.pop(0)
-        plt.step([3 * x for x in range(tamanho)], cod_nrzi, where='post', color='red')
+        plt.step(range(tamanho), cod_nrzi, where='post', color='red')
         plt.ylabel('NRZ-I')
-        plt.plot([tamanho - 1, tamanho], [cod_nrzi[-1], cod_nrzi[-1]],
-                 color='red',
-                 linestyle='-')
-        plt.xticks([1.5 + i * 3 for i in range(tamanho)], bits)
-        plt.xlabel('Bits')
-        plt.axhline(y=0, color='black', linestyle='solid', alpha=0.3)
-        for i in range(0, tamanho + 1):
-          plt.axvline(x= i * 3, color='gray', linestyle='--',
-                      alpha=0.3)  #Traçado vertical
-        plt.ylim(-tamanho * 0.5, tamanho * 0.5)  # Definindo a escala do eixo y
-        plt.yticks([], [])  # Remove os ticks e valores do eixo y
-        plt.show()
+        plt.plot([tamanho-1,tamanho], [cod_nrzi[-1], cod_nrzi[-1]], color='red', linestyle='-')
 
 
     # Codificação NRZ-L
@@ -45,21 +34,9 @@ def plotar_grafico(bits, opcao):
                 cod_nrzl.append(nivel)
             else:
                 cod_nrzl.append(-nivel)
-        plt.step([2 * x for x in range(tamanho)], cod_nrzl, where='post', color='red')
+        plt.step(range(tamanho), cod_nrzl, where='post', color='red')
         plt.ylabel('NRZ-L')
-        plt.plot([tamanho - 1, tamanho], [cod_nrzl[-1], cod_nrzl[-1]],
-                 color='red',
-                 linestyle='-')
-        plt.xticks([1 + i * 2 for i in range(tamanho)], bits)
-        plt.xlabel('Bits')
-        plt.axhline(y=0, color='black', linestyle='solid', alpha=0.3)
-        for i in range(0, tamanho + 1):
-          plt.axvline(x= i * 2, color='gray', linestyle='--',
-                      alpha=0.3)  #Traçado vertical
-        plt.ylim(-tamanho * 0.5, tamanho * 0.5)  # Definindo a escala do eixo y
-        plt.yticks([], [])  # Remove os ticks e valores do eixo y
-        plt.show()
-      
+        plt.plot([tamanho-1,tamanho], [cod_nrzl[-1], cod_nrzl[-1]], color='red', linestyle='-')
 
     # Codificação AMI
     elif opcao == 3:
@@ -70,20 +47,9 @@ def plotar_grafico(bits, opcao):
             else:
                 cod_ami.append(nivel)
                 nivel = -nivel
-        plt.step([3 * x for x in range(tamanho)], cod_ami, where='post', color='red')
+        plt.step(range(tamanho), cod_ami, where='post', color='red')
         plt.ylabel('AMI')
-        plt.plot([tamanho - 1, tamanho], [cod_ami[-1], cod_ami[-1]],
-                 color='red',
-                 linestyle='-')
-        plt.xticks([1.5 + i * 3 for i in range(tamanho)], bits)
-        plt.xlabel('Bits')
-        plt.axhline(y=0, color='black', linestyle='solid', alpha=0.3)
-        for i in range(0, tamanho + 1):
-          plt.axvline(x= i * 3, color='gray', linestyle='--',
-                      alpha=0.3)  #Traçado vertical
-        plt.ylim(-tamanho * 0.5, tamanho * 0.5)  # Definindo a escala do eixo y
-        plt.yticks([], [])  # Remove os ticks e valores do eixo y
-        plt.show()
+        plt.plot([tamanho-1,tamanho], [cod_ami[-1], cod_ami[-1]], color='red', linestyle='-')
 
     # Codificação Pseudoternário
     elif opcao == 4:
@@ -99,22 +65,10 @@ def plotar_grafico(bits, opcao):
                     alterna = 0
             else:
                 cod_pseudoternario.append(0)
-        plt.step([3 * x for x in range(tamanho)], cod_pseudoternario, where='post', color='red')
+        plt.step(range(tamanho), cod_pseudoternario, where='post', color='red')
         plt.ylabel('Pseudoternário')
-        plt.plot([tamanho - 1, tamanho],
-                 [cod_pseudoternario[-1], cod_pseudoternario[-1]],
-                 color='red',
-                 linestyle='-')
-        plt.xticks([1.5 + i * 3 for i in range(tamanho)], bits)
-        plt.xlabel('Bits')
-        plt.axhline(y=0, color='black', linestyle='solid', alpha=0.3)
-        for i in range(0, tamanho + 1):
-          plt.axvline(x= i * 3, color='gray', linestyle='--',
-                      alpha=0.3)  #Traçado vertical
-        plt.ylim(-tamanho * 0.5, tamanho * 0.5)  # Definindo a escala do eixo y
-        plt.yticks([], [])  # Remove os ticks e valores do eixo y
-        plt.show()
-    
+        plt.plot([tamanho-1,tamanho], [cod_pseudoternario[-1], cod_pseudoternario[-1]], color='red', linestyle='-')
+
     # Codificação Manchester
     elif opcao == 5:
         cod_manchester = []
@@ -123,18 +77,9 @@ def plotar_grafico(bits, opcao):
                 cod_manchester.extend([1, -1])
             else:
                 cod_manchester.extend([-1, 1])
-        plt.step(range(2 * tamanho), cod_manchester, where='mid', color='red')
+        plt.step(range(2*tamanho), cod_manchester, where='mid', color='red')
         plt.ylabel('Manchester')
-        plt.xticks([1 + i * 2 for i in range(tamanho)], bits)
-        plt.xlabel('Bits')
-        plt.axhline(y=0, color='black', linestyle='solid', alpha=0.3)
-        for i in range(0, tamanho+1):
-          plt.axvline(x= i * 1.935, color='gray', linestyle='--',
-                      alpha=0.3)  #Traçado vertical
-        plt.ylim(-tamanho * 0.5, tamanho * 0.5)  # Definindo a escala do eixo y
-        plt.yticks([], [])  # Remove os ticks e valores do eixo y
-        plt.show()
-    
+
     # Codificação Manchester Diferencial
     elif opcao == 6:
         cod_manchester_diff = []
@@ -145,17 +90,8 @@ def plotar_grafico(bits, opcao):
             else:
                 polaridade = -polaridade
                 cod_manchester_diff.extend([polaridade, -polaridade])
-        plt.step(range(2 * tamanho), cod_manchester_diff, where='mid', color='red')
+        plt.step(range(2*tamanho), cod_manchester_diff, where='mid', color='red')
         plt.ylabel('Manchester Diferencial')
-        plt.xticks([0.8 + i * 1.94 for i in range(tamanho)], bits)
-        plt.xlabel('Bits')
-        plt.axhline(y=0, color='black', linestyle='solid', alpha=0.3)
-        for i in range(0, tamanho):
-          plt.axvline(x= i * 1.94, color='gray', linestyle='--',
-                      alpha=0.3)  #Traçado vertical
-        plt.ylim(-tamanho * 0.5, tamanho * 0.5)  # Definindo a escala do eixo y
-        plt.yticks([], [])  # Remove os ticks e valores do eixo y
-        plt.show()
 
     # Codificação RZ Unipolar
     elif opcao == 7:
@@ -166,17 +102,8 @@ def plotar_grafico(bits, opcao):
                 cod_rz_unipolar.append(0)
             else:
                 cod_rz_unipolar.extend([1, 0])
-        plt.step(range(2 * tamanho), cod_rz_unipolar, where='mid', color='red')
+        plt.step(range(2*tamanho), cod_rz_unipolar, where='mid', color='red')
         plt.ylabel('RZ Unipolar')
-        plt.xticks([0.7 + i * 2 for i in range(tamanho)], bits)
-        plt.xlabel('Bits')
-        plt.axhline(y=0, color='black', linestyle='solid', alpha=0.3)
-        for i in range(0, tamanho + 1):
-          plt.axvline(x= i * 1.9, color='gray', linestyle='--',
-                      alpha=0.3)  #Traçado vertical
-        plt.ylim(-tamanho * 0.5, tamanho * 0.5)  # Definindo a escala do eixo y
-        plt.yticks([], [])  # Remove os ticks e valores do eixo y
-        plt.show()
         
     # Codificação RZ Bipolar
     elif opcao == 8:
@@ -193,23 +120,26 @@ def plotar_grafico(bits, opcao):
                 else:
                     cod_rz_bipolar.extend([-1, 0])
                     alterna = 0
-        plt.step(range(2 * tamanho), cod_rz_bipolar, where='mid', color='red')
-        plt.ylabel('RZ Bipolar')
-        plt.xticks([0.7 + i * 2 for i in range(tamanho)], bits)
+        plt.step(range(2*tamanho), cod_rz_bipolar, where='mid', color='red')
+        plt.ylabel('RZ Bipolar')    
+    
+    if(opcao < 5):
+        plt.xticks(range(tamanho), bits)
+        x_positions = [i + 0.5 for i in range(len(bits))] #!!!!!!!!!!!!!!!!!!!!!!!!#
+        plt.xticks(x_positions, bits[:])                  #!!!!!!!!!!!!!!!!!!!!!!!!#
+        
         plt.xlabel('Bits')
         plt.axhline(y=0, color='black', linestyle='solid', alpha=0.3)
-        for i in range(0, tamanho + 1):
-          plt.axvline(x= i * 1.9, color='gray', linestyle='--',
-                      alpha=0.3)  #Traçado vertical
-        plt.ylim(-tamanho * 0.5, tamanho * 0.5)  # Definindo a escala do eixo y
-        plt.yticks([], [])  # Remove os ticks e valores do eixo y
-        plt.show()
+        for i in range(0, tamanho+1):
+            plt.axvline(x=i, color='gray', linestyle='--', alpha=0.3) #Traçado vertical
+    else:
+        plt.xticks(range(tamanho), bits)
+        x_positions = [2*i + 0.7 for i in range(len(bits))] #!!!!!!!!!!!!!!!!!!!!!!!!#
+        plt.xticks(x_positions, bits[:])
+        plt.xlabel('Bits')
+        plt.axhline(y=0, color='black', linestyle='solid', alpha=0.3)
 
-    
-    plt.xlabel('Bits')
-    plt.axhline(y=0, color='black', linestyle='solid', alpha=0.3)
-    for i in range(0, tamanho+1):
-        plt.axvline(x=i, color='gray', linestyle='--', alpha=0.3) #Traçado vertical
+        
     plt.ylim(-tamanho*0.5, tamanho*0.5) # Definindo a escala do eixo y
     plt.yticks([], [])  # Remove os ticks e valores do eixo y
     plt.show()
