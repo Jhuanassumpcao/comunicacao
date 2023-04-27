@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-
+# Jhuan Luis, Eduardo Fritzen, Ana M, Dionatan
 # In[18]:
 
 
